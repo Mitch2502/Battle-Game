@@ -4,3 +4,1867 @@
 *.jar
 *.war
 *.ear
+
+
+
+import java.util.*; //needed for Scanner utility for user input 
+
+public class Main
+{
+
+    Scanner in = new Scanner(System.in); //Creates a Scanner object
+
+    public void firstfight()
+    {
+        String rules;
+        System.out.println("Welcome to the game of BLOODSHED.");
+        System.out.print("Would you like to see the rules to the game? (Yes/No): ");
+        rules=in.next();
+
+        if (rules.compareToIgnoreCase("yes")==0)
+        {
+
+            //enter the rules
+
+            System.out.println("Your charactor fights different Beasts earning XP and gold.");
+            System.out.println("You level up once you reach certian XP levels, and learn different Attacks");
+            System.out.println("You can use your earned gold in the STORE");
+            System.out.println();
+
+        }
+        else
+        {
+            System.out.println("");
+        }
+        System.out.println("");
+
+        String name, beastinfo;
+
+        System.out.print("What would you like your charactor's name to be?: ");
+        name=in.next();
+
+        System.out.println(name + " is Lv. 1 and has 500 Health");
+        System.out.println( name + " needs 50 XP to reach Lv. 2");
+
+        //Beast pick
+
+        System.out.println("");
+        System.out.print("Would you like to see the list of Beasts to fight and there stats? (Yes/No): ");
+        beastinfo=in.next();
+
+        if (beastinfo.compareToIgnoreCase("yes")==0)
+        {
+            System.out.println("");
+            System.out.println("Retilla: ");
+            System.out.println("Heath: 150");
+            System.out.println("Attack: Up to 75");
+            System.out.println("XP gained when killed: 50");
+            System.out.println("");
+            System.out.println("Armored Kalica (Can't fight for your first battle): ");
+            System.out.println("Heath: 700");
+            System.out.println("Attack: Up to 150");
+            System.out.println("XP gained when killed: 200");
+            System.out.println("");
+            System.out.println("And more Beasts coming...");
+            System.out.println("");
+
+        }
+
+        else
+        {
+            System.out.println("");
+        }
+
+        //basics
+        int bank=0;
+        int xp=50, xp1=0, health=500, health1=500;
+        String beast, avattack, attack;
+
+        //retilla
+        int retillaAK=0, playerAK2=0, retillahealth=200;
+
+        //Armored Kalica
+        int kalicaAK=0, kalicahealth=700;
+
+        //fire breathing kalica
+        int firekalicaAK=0, firekalicahealth=1500;
+
+        //Golden-Scale Slither
+        int slitherhealth=1000, slitherAK=0;
+
+        System.out.print("Which Beast would you like to fight? (Enter the last word of the Beast's name or type *None* if you are DONE fighting): ");
+        beast=in.next();
+        System.out.println("");
+
+        //retilla fight
+
+        if (beast.compareToIgnoreCase("Retilla")==0)
+        {
+            System.out.println("You have selected to fight a Retilla!");
+            System.out.println("Let the fight begin!!!");
+            System.out.println("");
+            for (;;)
+            {
+
+                System.out.print("Would you like to see your available attacks? (Yes/No): ");
+                avattack=in.next();
+                System.out.println("");
+                if (avattack.compareToIgnoreCase("Yes")==0)
+                {
+                    System.out.println("");
+                    System.out.println("PIERCE: 25 attack");
+                    System.out.println("");
+                }
+                else
+                {
+                    System.out.println("");
+                }
+                System.out.print("It's now your turn to attack. Which attack would you like to use?: ");
+                attack=in.next();
+                System.out.println("");
+
+                if (attack.compareToIgnoreCase("Pierce")==0)
+                {
+                    int playerAK;
+                    playerAK=(int)(Math.random() *5) +1;
+
+                    if (playerAK==1)
+                    {
+                        System.out.println(name + " has used it's PIERCE attack, and has caused 15 Damage on Retilla");
+                        retillahealth=(retillahealth-15);
+                        System.out.println("Retilla now has "+ retillahealth + " health.");
+                        System.out.println("");
+                    }
+                    else if (playerAK==2)
+                    {
+                        System.out.println(name + " has used it's PIERCE attack, and has caused 25 Damage");
+                        retillahealth=(retillahealth-25);
+                        System.out.println("Retilla now has "+ retillahealth + " health.");
+                        System.out.println("");
+                    }
+                    else if (playerAK==3)
+                    {
+                        System.out.println(name + " has used it's PIERCE attack, and has caused 50 Damage");
+                        retillahealth=(retillahealth-50);
+                        System.out.println("Retilla now has "+ retillahealth + " health.");
+                        System.out.println("");
+                    }
+                    else if (playerAK==4)
+                    {
+                        System.out.println(name + " has used it's PIERCE attack, and has caused 75 Damage");
+                        retillahealth=(retillahealth-75);
+                        System.out.println("Retilla now has "+ retillahealth + " health.");
+                        System.out.println("");
+                    }
+                    else if (playerAK==5)
+                    {
+                        System.out.println(name + " has missed " + name + ", and has caused 0 Damage");
+                        retillahealth=(retillahealth-0);
+                        System.out.println("Retilla now has "+ retillahealth + " health.");
+                        System.out.println("");
+                    }
+                }
+
+                //retillas turn
+
+                retillaAK=(int)(Math.random() *4) +1;
+
+                if (retillaAK==1)
+                {
+                    System.out.println("Retilla has used it's BITE attack, and has caused 75 Damage");
+                    health1=(health1-75);
+                    System.out.println("You now have "+ health1 + " health.");
+                    System.out.println("");
+                }
+                else if (retillaAK==2)
+                {
+                    System.out.println("Retilla has used it's CLAW attack, and has caused 50 Damage");
+                    health1=(health1-50);
+                    System.out.println("You now have "+ health1 + " health.");
+                    System.out.println("");
+                }
+                else if (retillaAK==3)
+                {
+                    System.out.println("Retilla has used it's SPIKE attack, and has caused 25 Damage");
+                    health1=(health1-25);
+                    System.out.println("You now have "+ health1 + " health.");
+                    System.out.println("");
+                }
+                else if (retillaAK==4)
+                {
+                    System.out.println("Retilla has missed " + name + ", and has caused 0 Damage");
+                    health1=(health1-0);
+                    System.out.println("You now have "+ health1 + " health.");
+                    System.out.println("");
+                }
+
+                if (retillahealth<=0)
+                {
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("Congratulations!!! You have defeated a Retilla and gained 50 XP!");
+                    xp1=(xp+50);
+                    System.out.println("");
+                    int gold=0;
+                    gold=(int)(Math.random() *75) +1;
+
+                    System.out.println("You have won " + gold + " Gold!!!");
+                    bank=bank+gold;
+                    System.out.println("And now have " + bank + " Gold!!!");
+                    System.out.println("");
+                    if (xp1<100&&xp1>=0&&xp<0)
+                    {
+                        System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                    }
+                    else if (xp1>=100&&xp1<=149)
+                    {
+                        System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                        health=600;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=150&&xp1<=349)
+                    {
+                        System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                        health=700;
+                        System.out.println("You now have " + health + " Health!");
+                        System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                    }
+                    else if (xp1>=350&&xp1<=599)
+                    {
+                        System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                        health=900;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=600&&xp1<=899)
+                    {
+                        System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                        health=1000;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=900&&xp1<=1299)
+                    {
+                        System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                        health=1200;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=1300&xp1<=1599)
+                    {
+                        System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                        health=1300;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=1600)
+                    {
+                        System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                        health=2000;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    break;
+                }
+
+                if (health<=0)
+                {
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("You lose. You have been defeated by a Retilla and lost 10 XP!");
+                    xp1=(xp-10);
+                    if (xp1<100&&xp1>=0&&xp<0)
+                    {
+                        System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                    }
+                    else if (xp1>=100&&xp1<=149)
+                    {
+                        System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                        health=600;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=150&&xp1<=349)
+                    {
+                        System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                        health=700;
+                        System.out.println("You now have " + health + " Health!");
+                        System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                    }
+                    else if (xp1>=350&&xp1<=599)
+                    {
+                        System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                        health=900;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=600&&xp1<=899)
+                    {
+                        System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                        health=1000;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=900&&xp1<=1299)
+                    {
+                        System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                        health=1200;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=1300&xp1<=1599)
+                    {
+                        System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                        health=1300;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    else if (xp1>=1600)
+                    {
+                        System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                        health=2000;
+                        System.out.println("You now have " + health + " Health!");
+                    }
+                    break;
+                }
+
+            }
+        }
+
+        //armored kalica
+
+        else if (beast.compareToIgnoreCase("Kalica")==0)
+        {
+            System.out.println("Sorry, you cannot fight this Beast for your first fight.");
+        }
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //playagain
+        
+        
+        
+        
+        
+        
+        
+        
+        for (;;)
+        {
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+            System.out.println("");
+
+            String cont;
+            System.out.print("Would you like to fight another monster? (Yes/No): ");
+            cont=in.next();
+            System.out.println("");
+            System.out.println("");
+
+            if (cont.compareToIgnoreCase("Yes")==0)
+            {
+
+                String lvinfo;
+                System.out.println("");
+                System.out.print("Would you like to see the Lv. requirements? (Yes/No): ");
+                lvinfo=in.next();
+
+                System.out.println("");
+
+                if (lvinfo.compareToIgnoreCase("yes")==0)
+                {
+                    System.out.println("You are Lv. 1 if you have less than 100 XP.");
+                    System.out.println("");
+
+                    System.out.println("You are Lv. 2 if you have 100-149 XP.");
+
+                    System.out.println("");
+                    System.out.println("You are Lv. 3 if you have 150-349 XP.");
+                    System.out.println("You now have 700 Health.");
+                    System.out.println("You have learn the SLASH Attack!!!");
+                    System.out.println("");
+
+                    System.out.println("You are Lv. 4 if you have 350-599 XP.");
+                    System.out.println("You now have 900 Health.");
+                    System.out.println("");
+
+                    System.out.println("You are Lv. 5 if you have 600-899 XP.");
+                    System.out.println("You now have 1,000 Health.");
+                    System.out.println("");
+
+                    System.out.println("You are Lv. 6 if you have 900-1299 XP.");
+                    System.out.println("You now have 1200 Health.");
+                    System.out.println("You have learn the DEVASTATION Attack!!!");
+                    System.out.println("");
+
+                    System.out.println("You are Lv. 7 if you have 1300-1599 XP.");
+                    System.out.println("You now have 1300 Health.");
+                    System.out.println("");
+
+                    System.out.println("You are Lv. 8 if you have 1600+ XP.");
+                    System.out.println("You now have 1500 Health.");
+                    System.out.println("");
+                    System.out.println("");
+
+                }
+
+                else
+                {
+                    System.out.println("");
+                }
+
+                //shop
+                String shop;
+                System.out.print("Would you like to see the SHOP?: ");
+                shop=in.next();
+
+                if (shop.compareToIgnoreCase("Yes")==0)
+                {
+                    System.out.println("");
+
+                    System.out.println("You have " + bank + " Gold available to spend.");
+
+                    System.out.println("Weapon: Sliver Blade of Ice");
+                    System.out.println("Damage: Deals 100 each time");
+                    System.out.println("Cost: 500 Gold");
+                    System.out.println("Purchase Code: ice");
+                    System.out.println("");
+                    System.out.println("Weapon: Golden Blade of Fire");
+                    System.out.println("Damage: Deals 175 each time");
+                    System.out.println("Cost: 750 Gold");
+                    System.out.println("Purchase Code: fire");
+                    System.out.println("");
+                    System.out.println("And more to come...");
+
+                    String buy, ice, fire, purchase;
+
+                    System.out.print("Would you like buy an item?: ");
+                    buy=in.next();
+
+                    if (buy.compareToIgnoreCase("Yes")==0)
+                    {
+
+                        System.out.print("Which item would you like to purchase?: ");
+                        purchase=in.next();
+
+                        if (purchase.compareToIgnoreCase("Fire")==0&&bank>=750)
+                        {
+                            System.out.println("Congratulations!!!You have obtianed the Sliver Blade of Fire!!! ");
+                            System.out.println("You have spent 750 Gold of your " + bank + " Gold.");
+                        }
+                        else if (purchase.compareToIgnoreCase("Ice")==0&&bank>=500)
+                        {
+                            System.out.println("Congratulations!!!You have obtianed the Gold Blade of Ice!!! ");
+                            System.out.println("You have spent 500 Gold of your " + bank + " Gold.");
+                        }
+                        else 
+                        {
+                            System.out.println("Sorry, you have entered an invalid Purchase Code.");
+                            System.out.println("");
+                        }
+
+                    }
+                    else if (shop.compareToIgnoreCase("No")==0)
+                    {
+                        System.out.println("");
+                    }
+
+                }
+                else if (shop.compareToIgnoreCase("No")==0)
+                {
+                    System.out.println("");
+                }
+
+                //stats
+
+                System.out.print("Would you like to see the list of Beasts to fight and there stats? (Yes/No): ");
+                beastinfo=in.next();
+
+                if (beastinfo.compareToIgnoreCase("yes")==0)
+                {
+                    System.out.println("");
+                    System.out.println("Retilla: ");
+                    System.out.println("Heath: 150");
+                    System.out.println("Attack: Up to 100 (Was 75)");
+                    System.out.println("XP gained when killed: 50");
+                    System.out.println("");
+                    System.out.println("Armored Kalica: ");
+                    System.out.println("Heath: 700");
+                    System.out.println("Attack: Up to 150");
+                    System.out.println("XP gained when killed: 200");
+                    System.out.println("");
+                    System.out.println("**NEW BEAST**");
+                    System.out.println("Golden-Scale Slither: ");
+                    System.out.println("Heath: 1000");
+                    System.out.println("Attack: Up to 175");
+                    System.out.println("XP gained when killed: 400");
+                    System.out.println("");
+                    System.out.println("**NEW BEAST**");
+                    System.out.println("Fire-Breathing Kalica--Enter firekalica (one word): ");
+                    System.out.println("Lv. Requirement: Lv. 6");
+                    System.out.println("Heath: 1500");
+                    System.out.println("Attack: Up to 200");
+                    System.out.println("XP gained when killed: 500");
+                    System.out.println("");
+
+                }
+
+                else
+                {
+                    System.out.println("");
+                }
+
+                //retilla
+                int retillaAK2=0, retillahealth2=200;
+
+                //Armored Kalica
+                int kalicaAK2=0, kalicahealth2=700;
+
+                //slither
+                int slitherAK2=0, slitherhealth2=1000;
+
+                //fire breathing kalica
+                int firekalicaAK2=0, firekalicahealth2=1500;
+                System.out.print("Which Beast would you like to fight? (Enter the last word of the Beast's name or type None if you are DONE fighting): ");
+                beast=in.next();
+                System.out.println("");
+
+                //retilla fight
+
+                if (beast.compareToIgnoreCase("Retilla")==0)
+                {
+                    System.out.println("You have selected to fight a Retilla!");
+                    System.out.println("Let the fight begin!!!");
+                    System.out.println("");
+                    for (;;)
+                    {
+
+                        System.out.print("Would you like to see your available attacks? (Yes/No): ");
+                        avattack=in.next();
+                        System.out.println("");
+                        if (avattack.compareToIgnoreCase("Yes")==0)
+                        {
+                            System.out.println("");
+                            System.out.println("PIERCE: 15,25,50,75 attack");
+                            System.out.println("");
+                            System.out.println("If Lv. 3 (150+ XP), SLASH: 50,75,100,125 attack");
+                            System.out.println("Enter SLASH only if you are Lv. 3, or you lose a turn and don't attack");
+                            System.out.println("");
+                            System.out.println("If Lv. 6 (900+ XP), DEVASTATION: 75,125,150,200 attack");
+                            System.out.println("Enter DEVASTATION only if you are Lv. 6, or you lose a turn and don't attack");
+                            System.out.println("");
+                            System.out.println("If you bought the Silver Blade of Ice (In Shop), enter ICE");
+                            System.out.println("Enter ICE only if you bought it, or you lose a turn and don't attack");
+                            System.out.println("");
+                            System.out.println("If you bought the Gold Blade of Fire (In Shop), enter FIRE");
+                            System.out.println("Enter FIRE only if you bought it, or you lose a turn and don't attack");
+                            System.out.println("");
+                        }
+                        else
+                        {
+                            System.out.println("");
+                        }
+
+                        System.out.print("It's now your turn to attack. Which attack would you like to use?: ");
+                        attack=in.next();
+                        System.out.println("");
+
+                        int playerAK;
+                        playerAK=(int)(Math.random() *5) +1;
+
+                        if (attack.compareToIgnoreCase("Pierce")==0)
+                        {
+                            if (playerAK==1)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 15 Damage on Retilla");
+                                retillahealth2=(retillahealth2-15);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==2)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 25 Damage");
+                                retillahealth2=(retillahealth2-25);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==3)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 50 Damage");
+                                retillahealth2=(retillahealth2-50);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==4)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 75 Damage");
+                                retillahealth2=(retillahealth2-75);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==5)
+                            {
+                                System.out.println(name + " has missed " + name + ", and has caused 0 Damage");
+                                retillahealth2=(retillahealth2-0);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                        }
+
+                        else if (attack.compareToIgnoreCase("Slash")==0&&xp1>=150)
+                        {
+
+                            playerAK2=(int)(Math.random() *5) +1;
+
+                            if (playerAK2==5)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 125 Damage on Fire-Breathing Kalica");
+                                retillahealth2=(retillahealth2-125);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==2)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 50 Damage on Fire-Breathing Kalica");
+                                retillahealth2=(retillahealth2-50);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==3)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 75 Damage on Fire-Breathing Kalica");
+                                retillahealth2=(retillahealth2-75);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==4)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 100 Damage on Fire-Breathing Kalica");
+                                retillahealth2=(retillahealth2-100);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==1)
+                            {
+                                System.out.println(name + " has missed and has caused 0 Damage on Fire-Breathing Kalica");
+                                retillahealth2=(retillahealth2-0);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                        }
+                        else if (attack.compareToIgnoreCase("Slash")==0&&xp1<150)
+                        {
+                            System.out.println("You are not Lv. 3 and have not leared the SLASH attack yet. You have lost a turn.");
+                        }
+
+                        else if (attack.compareToIgnoreCase("Fire")==0&&bank>=750)
+                        {
+                            String firsttime;
+                            System.out.print("Is this the first time using this weapon (Yes/No): ");
+                            firsttime=in.next();
+
+                            if (firsttime.compareToIgnoreCase("Yes")==0)
+                            {
+                                System.out.println(name + " has used it's Silver Blade of Fire, and has caused 175 Damage on Armored Kalica");
+                                retillahealth2=(retillahealth2-175);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                                bank=bank-750;
+                            }
+                            else if (firsttime.compareToIgnoreCase("No")==0)
+                            {
+                                System.out.println(name + " has used it's Silver Blade of Fire, and has caused 175 Damage on Armored Kalica");
+                                retillahealth2=(retillahealth2-175);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+                        }
+
+                        else if (attack.compareToIgnoreCase("ice")==0&&bank<750)
+                        {
+                            System.out.println("You do now own the Silver Blade of Ice. You have lost a turn.");
+                        }
+                        else if (attack.compareToIgnoreCase("Ice")==0&&bank>=500)
+                        {
+                            String firsttime;
+                            System.out.print("Is this the first time using this weapon (Yes/No): ");
+                            firsttime=in.next();
+
+                            if (firsttime.compareToIgnoreCase("Yes")==0)
+                            {
+                                System.out.println(name + " has used it's Silver Blade of Ice, and has caused 100 Damage on Armored Kalica");
+                                retillahealth2=(retillahealth2-100);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                                bank=bank-750;
+                            }
+                            else if (firsttime.compareToIgnoreCase("No")==0)
+                            {
+                                System.out.println(name + " has used it's Silver Blade of Ice, and has caused 100 Damage on Armored Kalica");
+                                retillahealth2=(retillahealth2-100);
+                                System.out.println("Retilla now has "+ retillahealth2 + " health.");
+                                System.out.println("");
+                            }
+
+                        }
+                        else if (attack.compareToIgnoreCase("ice")==0&&bank<500)
+                        {
+                            System.out.println("You do now own the Silver Blade of Ice. You have lost a turn.");
+                        }
+
+                        //retillas turn
+                        retillaAK=(int)(Math.random() *4) +1;
+                        if (retillaAK==1)
+                        {
+                            System.out.println("Retilla has used it's BITE attack, and has caused 75 Damage");
+                            health=(health-75);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (retillaAK==2)
+                        {
+                            System.out.println("Retilla has used it's CLAW attack, and has caused 50 Damage");
+                            health=(health-50);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (retillaAK==3)
+                        {
+                            System.out.println("Retilla has used it's SPIKE attack, and has caused 25 Damage");
+                            health=(health-100);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (retillaAK==4)
+                        {
+                            System.out.println("Retilla has missed " + name + ", and has caused 0 Damage");
+                            health=(health-0);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+
+                        if (retillahealth2<=0)
+                        {
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("Congratulations!!! You have defeated a Retilla and gained 50 XP!");
+                            xp1=(50+xp1);
+                            System.out.println("");
+                            int gold;
+                            gold=(int)(Math.random() *75) +1;
+
+                            System.out.println("You have won " + gold + " Gold!!!");
+                            bank=bank+gold;
+                            System.out.println("");
+                            System.out.println("And now have " + bank + " Gold!!!");
+                            System.out.println("");
+                            if (xp1<100&&xp1>=0&&xp<0)
+                            {
+                                System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                            }
+                            else if (xp1>=100&&xp1<=149)
+                            {
+                                System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                                health=600;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=150&&xp1<=349)
+                            {
+                                System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                                health=700;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                            }
+                            else if (xp1>=350&&xp1<=599)
+                            {
+                                System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                                health=900;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=600&&xp1<=899)
+                            {
+                                System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                                health=1000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=900&&xp1<=1299)
+                            {
+                                System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                                health=1200;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("You have learn the DEVASTATION Attack!!!");
+                            }
+                            else if (xp1>=1300&xp1<=1599)
+                            {
+                                System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                                health=1300;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=1600)
+                            {
+                                System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                                health=2000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            break;
+                        }
+
+                        if (health<=0)
+                        {
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("You lose. You have been defeated by a Retilla and lost 10 XP!");
+                            xp1=(xp1-10);
+                            if (xp1<100&&xp1>=0&&xp<0)
+                            {
+                                System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                            }
+                            else if (xp1>=100&&xp1<=149)
+                            {
+                                System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                                health=600;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=150&&xp1<=349)
+                            {
+                                System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                                health=700;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                            }
+                            else if (xp1>=350&&xp1<=599)
+                            {
+                                System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                                health=900;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=600&&xp1<=899)
+                            {
+                                System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                                health=1000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=900&&xp1<=1299)
+                            {
+                                System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                                health=1200;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("You have learn the DEVASTATION Attack!!!");
+                            }
+                            else if (xp1>=1300&xp1<=1599)
+                            {
+                                System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                                health=1300;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=1600)
+                            {
+                                System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                                health=2000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            break;
+                        }
+
+                    }
+                }
+
+                //armored kalica
+                else if (beast.compareToIgnoreCase("Kalica")==0)
+                {
+                    System.out.println("You have selected to fight a Armored Kalica!");
+                    System.out.println("Let the fight begin!!!");
+                    System.out.println("");
+                    for (;;)
+                    {
+
+                        System.out.print("Would you like to see your available attacks? (Yes/No): ");
+                        avattack=in.next();
+                        System.out.println("");
+                        if (avattack.compareToIgnoreCase("Yes")==0)
+                        {
+                            System.out.println("");
+                            System.out.println("PIERCE: 15,25,50,75 attack");
+                            System.out.println("");
+                            System.out.println("If Lv. 3 (150+ XP), SLASH: 50,75,100,125 attack");
+                            System.out.println("Enter SLASH only if you are Lv. 3, or you lose a turn and don't attack");
+                            System.out.println("");
+                            System.out.println("If Lv. 6 (900+ XP), DEVASTATION: 75,125,150,200 attack");
+                            System.out.println("Enter DEVASTATION only if you are Lv. 6, or you lose a turn and don't attack");
+                            System.out.println("");
+                        }
+                        System.out.print("It's now your turn to attack. Which attack would you like to use?: ");
+                        attack=in.next();
+                        System.out.println("");
+
+                        if (attack.compareToIgnoreCase("Pierce")==0)
+                        {
+
+                            int playerAK;
+                            playerAK=(int)(Math.random() *5) +1;
+
+                            if (playerAK==1)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 15 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-15);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==2)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 25 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-25);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==3)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 50 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-50);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==4)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 75 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-75);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==5)
+                            {
+                                System.out.println(name + " has missed " + name + ", and has caused 0 Damage");
+                                kalicahealth2=(kalicahealth2-0);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                        }
+
+                        else if (attack.compareToIgnoreCase("Slash")==0&&xp1>=150)
+                        {
+
+                            playerAK2=(int)(Math.random() *5) +1;
+
+                            if (playerAK2==5)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 125 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-125);
+                                System.out.println("Retilla now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==2)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 50 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-50);
+                                System.out.println("Retilla now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==3)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 75 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-75);
+                                System.out.println("Retilla now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==4)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 100 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-100);
+                                System.out.println("Retilla now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==1)
+                            {
+                                System.out.println(name + " has missed and has caused 0 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-0);
+                                System.out.println("Retilla now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                        }
+                        else if (attack.compareToIgnoreCase("Slash")==0&&xp1<150)
+                        {
+                            System.out.println("You are not Lv. 3 and have not leared the SLASH attack yet. You have lost a turn.");
+                        }
+
+                        if (attack.compareToIgnoreCase("DEVASTATION")==0&&xp>=900)
+                        {
+                            int playerAK;
+                            playerAK=(int)(Math.random() *5) +1;
+
+                            if (playerAK==1)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 75 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-75);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==2)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 125 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-125);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==3)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 150 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-150);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==4)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 200 Damage on Armored Kalica");
+                                kalicahealth2=(kalicahealth2-200);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==5)
+                            {
+                                System.out.println(name + " has missed " + name + ", and has caused 0 Damage");
+                                kalicahealth2=(kalicahealth2-0);
+                                System.out.println("Armored Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                        }
+                        else if (attack.compareToIgnoreCase("DEVASTATION")==0&&xp<900)
+                        {
+                            System.out.println("You are not Lv. 6 and have not leared the DEVASTATION attack yet. You have lost a turn.");
+                        }
+
+                        //armored kalica's turn
+
+                        kalicaAK=(int)(Math.random() *4) +1;
+
+                        if (kalicaAK==1)
+                        {
+                            System.out.println("Armored Kalica has used it's JAB attack, and has caused 100 Damage");
+                            health=(health-100);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (kalicaAK==2)
+                        {
+                            System.out.println("Armored Kalica has used it's CLAW attack, and has caused 50 Damage");
+                            health=(health-50);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (kalicaAK==3)
+                        {
+                            System.out.println("Armored Kalica has used it's SPIKE attack, and has caused 150 Damage");
+                            health=(health-150);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (kalicaAK==4)
+                        {
+                            System.out.println("Armored Kalica has missed " + name + ", and has caused 0 Damage");
+                            health=(health-0);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+
+                        if (kalicahealth2<=0)
+                        {
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("Congratulations!!! You have defeated a Armored Kalica and gained 200 XP!");
+                            xp1=(xp1+200);
+                            System.out.println("");
+                            int gold;
+                            gold=(int)(Math.random() *100) +50;
+
+                            System.out.println("You have won " + gold + " Gold!!!");
+                            bank=bank+gold;
+                            System.out.println("And now have " + bank + " Gold!!!");
+                            System.out.println("");
+                            if (xp1<100&&xp1>=0&&xp<0)
+                            {
+                                System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                            }
+                            else if (xp1>=100&&xp1<=149)
+                            {
+                                System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                                health=600;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=150&&xp1<=349)
+                            {
+                                System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                                health=700;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                            }
+                            else if (xp1>=350&&xp1<=599)
+                            {
+                                System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                                health=900;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=600&&xp1<=899)
+                            {
+                                System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                                health=1000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=900&&xp1<=1299)
+                            {
+                                System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                                health=1200;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("You have learn the DEVASTATION Attack!!!");
+                            }
+                            else if (xp1>=1300&xp1<=1599)
+                            {
+                                System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                                health=1300;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=1600)
+                            {
+                                System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                                health=2000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            break;
+                        }
+
+                        if (health<=0)
+                        {
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("You lose. You have been defeated by a Armored Kalica and lost 50 XP!");
+                            xp1=(xp1-50);
+                            if (xp1<100&&xp1>=0&&xp<0)
+                            {
+                                System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                            }
+                            else if (xp1>=100&&xp1<=149)
+                            {
+                                System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                                health=600;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=150&&xp1<=349)
+                            {
+                                System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                                health=700;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                            }
+                            else if (xp1>=350&&xp1<=599)
+                            {
+                                System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                                health=900;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=600&&xp1<=899)
+                            {
+                                System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                                health=1000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=900&&xp1<=1299)
+                            {
+                                System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                                health=1200;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("You have learn the DEVASTATION Attack!!!");
+                            }
+                            else if (xp1>=1300&xp1<=1599)
+                            {
+                                System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                                health=1300;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=1600)
+                            {
+                                System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                                health=2000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            break;
+                        }
+                    }
+                }
+                else if (beast.compareToIgnoreCase("Slither")==0)
+                {
+                    System.out.println("You have selected to fight a Golden-Scale Slither!");
+                    System.out.println("Let the fight begin!!!");
+                    System.out.println("");
+                    for (;;)
+                    {
+
+                        System.out.print("Would you like to see your available attacks? (Yes/No): ");
+                        avattack=in.next();
+                        System.out.println("");
+                        if (avattack.compareToIgnoreCase("Yes")==0)
+                        {
+                            System.out.println("");
+                            System.out.println("PIERCE: 15,25,50,75 attack");
+                            System.out.println("");
+                            System.out.println("If Lv. 3 (150+ XP), SLASH: 50,75,100,125 attack");
+                            System.out.println("Enter SLASH only if you are Lv. 3, or you lose a turn and don't attack");
+                            System.out.println("");
+                            System.out.println("If Lv. 6 (900+ XP), DEVASTATION: 75,125,150,200 attack");
+                            System.out.println("Enter DEVASTATION only if you are Lv. 6, or you lose a turn and don't attack");
+                            System.out.println("");
+                            System.out.println("If you bought the Silver Blade of Ice (In Shop), enter ICE");
+                            System.out.println("Enter ICE only if you bought it, or you lose a turn and don't attack");
+                            System.out.println("");
+                            System.out.println("If you bought the Gold Blade of Fire (In Shop), enter FIRE");
+                            System.out.println("Enter FIRE only if you bought it, or you lose a turn and don't attack");
+                            System.out.println("");
+                        }
+                        else
+                        {
+                            System.out.println("");
+                        }
+
+                        System.out.print("It's now your turn to attack. Which attack would you like to use?: ");
+                        attack=in.next();
+                        System.out.println("");
+
+                        int playerAK;
+                        playerAK=(int)(Math.random() *5) +1;
+
+                        if (attack.compareToIgnoreCase("Pierce")==0)
+                        {
+                            if (playerAK==1)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 15 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-15);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==2)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 25 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-25);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==3)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 50 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-50);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==4)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 75 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-75);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==5)
+                            {
+                                System.out.println(name + " has missed " + name + ", and has caused 0 Damage");
+                                slitherhealth2=(slitherhealth2-0);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                        }
+
+                        else if (attack.compareToIgnoreCase("Slash")==0&&xp1>=150)
+                        {
+
+                            playerAK2=(int)(Math.random() *5) +1;
+
+                            if (playerAK2==5)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 125 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-125);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==2)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 50 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-50);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==3)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 75 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-75);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==4)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 100 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-100);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==1)
+                            {
+                                System.out.println(name + " has missed and has caused 0 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-0);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                        }
+                        else if (attack.compareToIgnoreCase("Slash")==0&&xp1<150)
+                        {
+                            System.out.println("You are not Lv. 3 and have not leared the SLASH attack yet. You have lost a turn.");
+                        }
+
+                        if (attack.compareToIgnoreCase("DEVASTATION")==0&&xp>=900)
+                        {
+
+                            playerAK=(int)(Math.random() *5) +1;
+
+                            if (playerAK==1)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 75 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-75);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==2)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 125 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-125);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==3)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 150 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-150);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==4)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 200 Damage on Golden-Scale Slither");
+                                slitherhealth2=(slitherhealth2-200);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==5)
+                            {
+                                System.out.println(name + " has missed " + name + ", and has caused 0 Damage");
+                                slitherhealth2=(slitherhealth2-0);
+                                System.out.println("Golden-Scale Slither now has "+ slitherhealth2 + " health.");
+                                System.out.println("");
+                            }
+                        }
+                        else if (attack.compareToIgnoreCase("DEVASTATION")==0&&xp<900)
+                        {
+                            System.out.println("You are not Lv. 6 and have not leared the DEVASTATION attack yet. You have lost a turn.");
+                        }
+
+                        //retillas turn
+                        slitherAK=(int)(Math.random() *4) +1;
+                        if (slitherAK==1)
+                        {
+                            System.out.println("Golden-Scale Slither has used it's BITE attack, and has caused 125 Damage");
+                            health=(health-125);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (slitherAK==2)
+                        {
+                            System.out.println("Golden-Scale Slither has used it's CLAW attack, and has caused 175 Damage");
+                            health=(health-175);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (slitherAK==3)
+                        {
+                            System.out.println("Golden-Scale Slither has used it's SPIKE attack, and has caused 100 Damage");
+                            health=(health-100);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (slitherAK==4)
+                        {
+                            System.out.println("Golden-Scale Slither has missed " + name + ", and has caused 0 Damage");
+                            health=(health-0);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+
+                        if (slitherhealth<=0)
+                        {
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("Congratulations!!! You have defeated a Golden-Scale Slither and gained 100 XP!");
+                            xp1=(100+xp1);
+                            System.out.println("");
+                            int gold=0;
+                            gold=(int)(Math.random() *175) +50;
+
+                            System.out.println("You have won " + gold + " Gold!!!");
+                            bank=bank+gold;
+                            System.out.println("And now have " + bank + " Gold!!!");
+                            System.out.println("");
+                            if (xp1<100&&xp1>=0&&xp<0)
+                            {
+                                System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                            }
+                            else if (xp1>=100&&xp1<=149)
+                            {
+                                System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                                health=600;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=150&&xp1<=349)
+                            {
+                                System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                                health=700;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                            }
+                            else if (xp1>=350&&xp1<=599)
+                            {
+                                System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                                health=900;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=600&&xp1<=899)
+                            {
+                                System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                                health=1000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=900&&xp1<=1299)
+                            {
+                                System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                                health=1200;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("You have learn the DEVASTATION Attack!!!");
+                            }
+                            else if (xp1>=1300&xp1<=1599)
+                            {
+                                System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                                health=1300;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=1600)
+                            {
+                                System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                                health=2000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            break;
+                        }
+
+                        if (health<=0)
+                        {
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("You lose. You have been defeated by a Golden-Scale Slither and lost 10 XP!");
+                            xp1=(xp1-10);
+                            if (xp1<100&&xp1>=0&&xp<0)
+                            {
+                                System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                            }
+                            else if (xp1>=100&&xp1<=149)
+                            {
+                                System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                                health=600;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=150&&xp1<=349)
+                            {
+                                System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                                health=700;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                            }
+                            else if (xp1>=350&&xp1<=599)
+                            {
+                                System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                                health=900;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=600&&xp1<=899)
+                            {
+                                System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                                health=1000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=900&&xp1<=1299)
+                            {
+                                System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                                health=1200;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("You have learn the DEVASTATION Attack!!!");
+                            }
+                            else if (xp1>=1300&xp1<=1599)
+                            {
+                                System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                                health=1300;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=1600)
+                            {
+                                System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                                health=2000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            break;
+                        }
+
+                    }
+                }
+
+                //Fire breating kalica fight
+
+                else if (beast.compareToIgnoreCase("firekalica")==0)
+                {
+                    System.out.println("You have selected to fight a Fire-Breathing Kalica!");
+                    System.out.println("Let the fight begin!!!");
+                    System.out.println("");
+                    for (;;)
+                    {
+
+                        System.out.print("Would you like to see your available attacks? (Yes/No): ");
+                        avattack=in.next();
+                        System.out.println("");
+                        if (avattack.compareToIgnoreCase("Yes")==0)
+                        {
+                            System.out.println("");
+                            System.out.println("PIERCE: 15,25,50,75 attack");
+                            System.out.println("");
+                            System.out.println("If Lv. 3 (150+ XP), SLASH: 50,75,100,125 attack");
+                            System.out.println("Enter SLASH only if you are Lv. 3, or you lose a turn and don't attack");
+                            System.out.println("");
+                            System.out.println("If Lv. 6 (900+ XP), DEVASTATION: 75,125,150,200 attack");
+                            System.out.println("Enter DEVASTATION only if you are Lv. 6, or you lose a turn and don't attack");
+                            System.out.println("");
+                        }
+                        System.out.print("It's now your turn to attack. Which attack would you like to use?: ");
+                        attack=in.next();
+                        System.out.println("");
+
+                        if (attack.compareToIgnoreCase("Pierce")==0)
+                        {
+
+                            int playerAK;
+                            playerAK=(int)(Math.random() *5) +1;
+
+                            if (playerAK==1)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 15 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-15);
+                                System.out.println("Fire-Breathing Kalica now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==2)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 25 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-25);
+                                System.out.println("Fire-Breathing Kalica now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==3)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 50 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-50);
+                                System.out.println("Fire-Breathing Kalica now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==4)
+                            {
+                                System.out.println(name + " has used it's PIERCE attack, and has caused 75 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-75);
+                                System.out.println("Fire-Breathing Kalica now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==5)
+                            {
+                                System.out.println(name + " has missed " + name + ", and has caused 0 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-0);
+                                System.out.println("Fire-Breathing Kalica now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                        }
+                        else if (attack.compareToIgnoreCase("Slash")==0&&xp1>=150)
+                        {
+
+                            playerAK2=(int)(Math.random() *5) +1;
+
+                            if (playerAK2==5)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 125 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-125);
+                                System.out.println("Retilla now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==2)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 50 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-50);
+                                System.out.println("Retilla now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==3)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 75 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-75);
+                                System.out.println("Retilla now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==4)
+                            {
+                                System.out.println(name + " has used it's SLASH attack, and has caused 100 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-100);
+                                System.out.println("Retilla now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK2==1)
+                            {
+                                System.out.println(name + " has missed and has caused 0 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-0);
+                                System.out.println("Retilla now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                        }
+                        else if (attack.compareToIgnoreCase("Slash")==0&&xp1<150)
+                        {
+                            System.out.println("You are not Lv. 3 and have not leared the SLASH attack yet. You have lost a turn.");
+                        }
+                        if (attack.compareToIgnoreCase("DEVASTATION")==0&&xp>=900)
+                        {
+                            int playerAK;
+                            playerAK=(int)(Math.random() *5) +1;
+
+                            if (playerAK==1)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 75 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-75);
+                                System.out.println("Fire-Breathing Kalica now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==2)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 125 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-125);
+                                System.out.println("Fire-Breathing Kalica now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==3)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 150 Damage on  Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-150);
+                                System.out.println("Fire-Breathing Kalica now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==4)
+                            {
+                                System.out.println(name + " has used it's DEVASTATION attack, and has caused 200 Damage on Fire-Breathing Kalica");
+                                firekalicahealth=(firekalicahealth-200);
+                                System.out.println("Fire-Breathing Kalica now has "+ kalicahealth2 + " health.");
+                                System.out.println("");
+                            }
+                            else if (playerAK==5)
+                            {
+                                System.out.println(name + " has missed " + name + ", and has caused 0 Damage");
+                                firekalicahealth=(firekalicahealth-0);
+                                System.out.println("Fire-Breathing Kalica now has "+ firekalicahealth + " health.");
+                                System.out.println("");
+                            }
+                        }
+                        else if (attack.compareToIgnoreCase("DEVASTATION")==0&&xp<900)
+                        {
+                            System.out.println("You are not Lv. 6 and have not leared the DEVASTATION attack yet. You have lost a turn.");
+                        }
+
+                        //fire dragon's turn
+
+                        firekalicaAK=(int)(Math.random() *4) +1;
+
+                        if (firekalicaAK==1)
+                        {
+                            System.out.println("Fire-Breathing Kalica has used it's SCORCH attack, and has caused 200 Damage");
+                            health=(health-200);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (firekalicaAK==2)
+                        {
+                            System.out.println("Fire-Breathing Kalica has used it's POISEN CLAW attack, and has caused 150 Damage");
+                            health=(health-150);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (firekalicaAK==3)
+                        {
+                            System.out.println("Fire-Breathing Kalica has used it's SPIKE++ attack, and has caused 100 Damage");
+                            health=(health-100);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+                        else if (firekalicaAK==4)
+                        {
+                            System.out.println("Fire-Breathing Kalica has missed " + name + ", and has caused 0 Damage");
+                            health=(health-0);
+                            System.out.println("You now have "+ health + " health.");
+                            System.out.println("");
+                        }
+
+                        if (firekalicahealth<=0)
+                        {
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("Congratulations!!! You have defeated a Fire-Breathing Kalica and gained 1500 XP!");
+                            xp1=(xp1+1500);
+                            System.out.println("");
+                            int gold;
+                            gold=(int)(Math.random() *75) +10;
+
+                            System.out.println("You have won " + gold + " Gold!!!");
+                            bank=bank+gold;
+                            System.out.println("And now have " + bank + " Gold!!!");
+                            System.out.println("");
+                            if (xp1<100&&xp1>=0&&xp<0)
+                            {
+                                System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                            }
+                            else if (xp1>=100&&xp1<=149)
+                            {
+                                System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                                health=600;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=150&&xp1<=349)
+                            {
+                                System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                                health=700;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                            }
+                            else if (xp1>=350&&xp1<=599)
+                            {
+                                System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                                health=900;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=600&&xp1<=899)
+                            {
+                                System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                                health=1000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=900&&xp1<=1299)
+                            {
+                                System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                                health=1200;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("You have learn the DEVASTATION Attack!!!");
+                            }
+                            else if (xp1>=1300&xp1<=1599)
+                            {
+                                System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                                health=1300;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=1600)
+                            {
+                                System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                                health=2000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            break;
+                        }
+
+                        if (health<=0)
+                        {
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.println("You lose. You have been defeated by a Fire-Breathing Kalica and lost 700 XP!");
+                            xp1=(xp1-700);
+                            if (xp1<100&&xp1>=0&&xp<0)
+                            {
+                                System.out.println("You are Lv. 1 with " + xp1 + " XP.");
+
+                            }
+                            else if (xp1>=100&&xp1<=149)
+                            {
+                                System.out.println("You are Lv. 2 with " + xp1 + " XP.");
+                                health=600;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=150&&xp1<=349)
+                            {
+                                System.out.println("You are Lv. 3 with " + xp1 + " XP.");
+                                health=700;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("Congratulations!!! You have learned the SLASH Attack!!!");
+                            }
+                            else if (xp1>=350&&xp1<=599)
+                            {
+                                System.out.println("You are Lv. 4 with " + xp1 + " XP.");
+                                health=900;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=600&&xp1<=899)
+                            {
+                                System.out.println("You are Lv. 5 with " + xp1 +  "XP.");
+                                health=1000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=900&&xp1<=1299)
+                            {
+                                System.out.println("You are Lv. 6 with " + xp1 + " XP.");
+                                health=1200;
+                                System.out.println("You now have " + health + " Health!");
+                                System.out.println("You have learn the DEVASTATION Attack!!!");
+                            }
+                            else if (xp1>=1300&xp1<=1599)
+                            {
+                                System.out.println("You are Lv. 7 with " + xp1 + " XP.");
+                                health=1300;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            else if (xp1>=1600)
+                            {
+                                System.out.println("You are Lv. 8 with " + xp1 + " XP.");
+                                health=2000;
+                                System.out.println("You now have " + health + " Health!");
+                            }
+                            break;
+                        }
+                    }
+                }
+                else if (cont.compareToIgnoreCase("No")==0)
+                {
+                    System.out.println("Thank you for playing!!!");
+                    break;
+
+                }
+                else
+                {
+                    System.out.println("You have not typed (Yes/No). Please try again.");
+                }
+            }
+        }
+    }
+}
+
